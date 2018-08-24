@@ -20,7 +20,7 @@ export default {
 
 <style scoped>
     .header {
-        background-color: #5a5555;
+        background-color: #444;
         height: 50px;
     }
     img {
@@ -32,6 +32,7 @@ export default {
         list-style: none;
         float: right;
         margin: 4px;
+        margin-right: 50px;
     }
     li {
         display: inline-block;
