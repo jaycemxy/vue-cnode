@@ -2,6 +2,7 @@
   <div id="app">
     <Header></Header>  <!-- 组件使用第三步：放在合适的加载位置 -->
     <div class="main">
+      <router-view name="slidebar"></router-view>
       <router-view name="main"></router-view>
     </div>
   </div>

@@ -77,6 +77,11 @@ export default {
     beforeMount() {
         this.isLoading = true; // 加载成功前显示loading动画
         this.getArticleData(); // 加载成功后显示数据
+    },
+    watch: {
+        '$route'(to, from){
+            this.getArticleData();
+        }
     }
 }
 </script>

@@ -49,4 +49,52 @@ Vue.prototype.$http = Axios;  // 这样就可以直接使用this.$http发送请�
 ```
 
 更多请看我的一篇博客总结：https://jaycemxy.github.io/2018/08/23/axios%E7%9A%84%E4%BD%BF%E7%94%A8/
+## 监听路由变化
+当你从页面：
+```
+http://localhost:8080/#/topic/5a9661ff71327bb413bbff5b&author=nswbmw
+```
 
+跳转到页面：
+```
+http://localhost:8080/#/userinfo/nswbmw
+```
+
+可以明显看出路由的变化，从topic到userinfo，并且我们在index.js文件中也定义了两个路由跳转的路径
+```
+{
+  name: 'post_content',
+  path: '/topic/:id&author=:name',
+  components: {
+    main: Article,
+    slidebar: SlideBar
+  }
+},
+{
+  name: 'user_info',
+  path: '/userinfo/:name',
+  components: {
+    main: UserInfo
+  }
+}
+```
+
+但当你从：
+```
+http://localhost:8080/#/topic/5a9661ff71327bb413bbff5b&author=nswbmw
+```
+
+转向页面：
+```
+http://localhost:8080/#/topic/5a99733f8edf56a344936fda&author=nswbmw
+```
+
+这里仔细观察topic未发生变化，但却是不同的话题页面，这时我们需要用到vue提供给我们的watch对象，它可以监听路由发生的改变
+```
+// Article.vue中
+watch: {
+  '$route'(to, from){
+      this.getArticleData();
+  }
+}
+```
