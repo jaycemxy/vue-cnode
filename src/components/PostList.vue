@@ -31,7 +31,14 @@
                     </span>
                 </span>
                 <!-- 标题 -->
-                <span>{{ post.title }}</span>
+                <router-link :to="{
+                    name: 'post_content',
+                    params: {
+                        id: post.id
+                    }
+                }">
+                    <span>{{ post.title }}</span>
+                </router-link>
                 <!-- 最终回复时间 -->
                 <span class="last_reply">
                     {{ post.last_reply_at | formatDate }}
