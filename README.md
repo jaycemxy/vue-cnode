@@ -29,7 +29,9 @@ API： https://cnodejs.org/api/v1/topics（接收get参数）
       - ask：问答
       - job：招聘
 ### 获取帖子详情页
-API：https://cnodejs.org/api/v1/topic/ + 帖子ID
+API：https://cnodejs.org/api/v1/topic/+帖子ID
+### 获取用户详情页
+API：https://cnodejs.org/api/v1/user/+username
 ## 使用axios发送请求
 1、安装
 ```

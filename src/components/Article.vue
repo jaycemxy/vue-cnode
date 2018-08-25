@@ -15,18 +15,25 @@
             </ul>
             <div class="topic_content" v-html="post.content"></div>
         </div>
-        <div>
+        <div id="reply">
             <div class="topbar">回复</div>
             <div v-for="(reply,index) in post.replies" class="replySec">
                 <div class="replyUp">
-                    <router-link>
+                    <router-link :to="{
+                        name: 'user_info',
+                        params: {
+                            name: reply.author.loginname
+                        }
+                    }">
                         <!-- 回复的作者头像 -->
                         <img :src="reply.author.avatar_url" alt="">
                     </router-link>
+
                     <router-link>
                         <!-- 回复的作者姓名 -->
                         <span>{{ reply.author.loginname }}</span>
                     </router-link>
+
                     <span>
                         {{ index+1 }}楼
                     </span>

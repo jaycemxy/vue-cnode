@@ -23,6 +23,9 @@ export default {
 </script>
 
 <style>
+  #app{
+    background: #dddddd;
+  }
   .main {
     width: 80%;
     margin: 0 auto;
