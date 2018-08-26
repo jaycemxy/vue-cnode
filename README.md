@@ -98,3 +98,22 @@ watch: {
   }
 }
 ```
+## 子组件传值给父组件
+底部分页组件（pagination）向上传递当前页码给帖子列表（PostList），实现点击页码切换帖子列表
+```
+Pagination：
+// 向父组件PostList传递数据，定义自定义事件，并传递参数
+this.$emit('handleList',this.currentPage);
+```
+
+```
+PostList：
+// 父组件绑定自定义事件，并在methods中定义相关方法
+<pagination @handleList="renderList"></pagination>
+
+methods: {
+  renderList(){
+    // 相关操作
+  }
+}
+```
